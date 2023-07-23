@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
-  Pressable,
   StyleSheet,
+  Pressable,
   Text,
   TextInput,
   View,
@@ -9,7 +9,12 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  Keyboard,
 } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableWithoutFeedback } from "react-native";
+import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -18,6 +23,7 @@ export default function LoginScreen() {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [isOpenKeyboard, setIsOpenKeyboard] = useState(false);
+  const navigation = useNavigation();
 
   const togglePassword = () => {
     setSecureTextEntry(!secureTextEntry);
@@ -53,77 +59,98 @@ export default function LoginScreen() {
     }
   };
 
-   const onLogin = () => {
-     Alert.alert("Credentials", ` Email: ${email}, Password: ${password}`);
-   };
+  const onLogin = () => {
+    navigation.navigate("Home");
+  };
+
+  const onPressNavigate = () => {
+    navigation.navigate("RegistrationScreen");
+  };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.wrapper}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <View
-          style={{
-            ...styles.formWrapper,
-            paddingBottom: isOpenKeyboard ? 10 : 111,
-            height: isOpenKeyboard ? 270 : "auto",
-          }}
-        >
-          <View style={styles.form}>
-            <Text style={styles.title}>Увійти</Text>
-            <TextInput
-              style={[styles.input, isFocusedEmail && styles.inputFocused]}
-              value={email}
-              onChangeText={setEmail}
-              onFocus={() => handleFocus("email")}
-              onBlur={() => handleBlur("email")}
-              placeholder="Адреса електронної пошти"
-            ></TextInput>
-            <View
-              style={[
-                styles.passwordInputContainer,
-                isFocusedPassword && styles.inputFocused,
-              ]}
+        <ImageBackgroundComponent>
+            <KeyboardAvoidingView
+              style={{ flex: 1 }}
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
             >
-              <TextInput
-                style={styles.passwordInput}
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry={secureTextEntry}
-                onFocus={() => handleFocus("password")}
-                onBlur={() => handleBlur("password")}
-                placeholder="Пароль"
-              />
-              <TouchableOpacity
-                style={styles.showPasswordButton}
-                onPress={togglePassword}
+          <View style={{ flex: 1, justifyContent: "flex-end" }}>
+            <View
+              style={{
+                ...styles.formWrapper,
+                paddingBottom: isOpenKeyboard ? 10 : 144,
+                height: isOpenKeyboard ? 250 : "auto",
+              }}
+            >
+              <Text style={styles.title}>Увійти</Text>
+                <TextInput
+                  style={[styles.input, isFocusedEmail && styles.inputFocused]}
+                  value={email}
+                  onChangeText={setEmail}
+                  onFocus={() => handleFocus("email")}
+                  onBlur={() => handleBlur("email")}
+                  placeholder="Адреса електронної пошти"
+                ></TextInput>
+              <View
+                style={[
+                  styles.passwordInputContainer,
+                  isFocusedPassword && styles.inputFocused,
+                ]}
               >
-                <Text style={styles.showPasswordButtonText}>
-                  {secureTextEntry ? "Показати" : "Сховати"}
-                </Text>
+                
+                  <TextInput
+                    style={styles.passwordInput}
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry={secureTextEntry}
+                    onFocus={() => handleFocus("password")}
+                    onBlur={() => handleBlur("password")}
+                    placeholder="Пароль"
+                  />
+                <TouchableOpacity
+                  style={styles.showPasswordButton}
+                  onPress={togglePassword}
+                >
+                  <Text style={styles.showPasswordButtonText}>
+                    {secureTextEntry ? "Показати" : "Сховати"}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <Pressable style={styles.button} onPress={onLogin}>
+                <Text style={styles.buttonText}>Увійти</Text>
+              </Pressable>
+              <TouchableOpacity onPress={onPressNavigate}>
+                <Text style={styles.text}>Немає акаунту? Зареєструватись</Text>
               </TouchableOpacity>
             </View>
-
-            <Pressable style={styles.button} onPress={onLogin}>
-              <Text style={styles.buttonText}>Увійти</Text>
-            </Pressable>
-            <Text style={styles.text}>Немає акаунту? Зареєструватись</Text>
           </View>
-        </View>
+          </KeyboardAvoidingView>
+        </ImageBackgroundComponent>
+        <StatusBar style="auto" />
       </View>
-    </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  backgroundOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
   formWrapper: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
     paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: "white",
-    width: "100%",
-    position: "absolute",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     borderBottomLeftRadius: 0,
@@ -145,8 +172,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   title: {
-    marginTop: 32,
-    marginBottom: 33,
+    marginBottom: 32,
     fontSize: 30,
     fontWeight: 600,
     color: "#212121",

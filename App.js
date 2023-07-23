@@ -1,12 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { ImageBackground, Keyboard, StyleSheet, View } from "react-native";
-import image from "./assets/images/background_img.png";
+import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
-import { TouchableWithoutFeedback } from "react-native";
-
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { LogOutButton } from "./components/LogOutButton";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import LoginScreen from "./screens/LoginScreen";
+import Home from "./screens/Home";
+import CommentsScreen from "./screens/CommentsScreen";
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,27 +17,45 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
+  const MainStack = createStackNavigator();
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-          {/* <RegistrationScreen /> */}
-          <LoginScreen /> 
-        </ImageBackground>
-        <StatusBar style="auto" />
-      </View>
-    </TouchableWithoutFeedback>
+    <NavigationContainer>
+      <MainStack.Navigator initialRouteName={RegistrationScreen}>
+        <MainStack.Screen
+          name="RegistrationScreen"
+          component={RegistrationScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="CommentsScreen"
+          component={CommentsScreen}
+          options={{
+            headerShown: true,
+            title: "Коментарі",
+            headerLeft: () => <LogOutButton />,
+            headerStyle: {
+              borderBottomWidth: 1,
+            },
+          }}
+        />
+      </MainStack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-  },
-});
