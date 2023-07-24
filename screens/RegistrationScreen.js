@@ -155,9 +155,12 @@ export default function RegistrationScreen({ navigation }) {
                   <Pressable style={styles.button} onPress={onLogin}>
                     <Text style={styles.buttonText}>Зареєструватися</Text>
                   </Pressable>
-                  <TouchableOpacity onPress={onPressNavigate}>
-                    <Text style={styles.text}>Вже є акаунт? Увійти</Text>
-                  </TouchableOpacity>
+                  <View style={styles.moveLink}>
+                    <Text style={styles.text}>Вже є акаунт? </Text>
+                    <TouchableOpacity onPress={onPressNavigate}>
+                      <Text style={styles.text}>Увійти</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
             </View>
@@ -285,5 +288,11 @@ const styles = StyleSheet.create({
     bottom: 12.5,
     right: 0,
     transform: [{ translateX: 12.5 }],
+  },
+  moveLink: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

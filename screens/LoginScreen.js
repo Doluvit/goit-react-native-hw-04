@@ -71,19 +71,19 @@ export default function LoginScreen() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
         <ImageBackgroundComponent>
-            <KeyboardAvoidingView
-              style={{ flex: 1 }}
-              behavior={Platform.OS === "ios" ? "padding" : "height"}
-            >
-          <View style={{ flex: 1, justifyContent: "flex-end" }}>
-            <View
-              style={{
-                ...styles.formWrapper,
-                paddingBottom: isOpenKeyboard ? 10 : 144,
-                height: isOpenKeyboard ? 250 : "auto",
-              }}
-            >
-              <Text style={styles.title}>Увійти</Text>
+          <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
+            <View style={{ flex: 1, justifyContent: "flex-end" }}>
+              <View
+                style={{
+                  ...styles.formWrapper,
+                  paddingBottom: isOpenKeyboard ? 10 : 144,
+                  height: isOpenKeyboard ? 250 : "auto",
+                }}
+              >
+                <Text style={styles.title}>Увійти</Text>
                 <TextInput
                   style={[styles.input, isFocusedEmail && styles.inputFocused]}
                   value={email}
@@ -92,13 +92,12 @@ export default function LoginScreen() {
                   onBlur={() => handleBlur("email")}
                   placeholder="Адреса електронної пошти"
                 ></TextInput>
-              <View
-                style={[
-                  styles.passwordInputContainer,
-                  isFocusedPassword && styles.inputFocused,
-                ]}
-              >
-                
+                <View
+                  style={[
+                    styles.passwordInputContainer,
+                    isFocusedPassword && styles.inputFocused,
+                  ]}
+                >
                   <TextInput
                     style={styles.passwordInput}
                     value={password}
@@ -108,23 +107,26 @@ export default function LoginScreen() {
                     onBlur={() => handleBlur("password")}
                     placeholder="Пароль"
                   />
-                <TouchableOpacity
-                  style={styles.showPasswordButton}
-                  onPress={togglePassword}
-                >
-                  <Text style={styles.showPasswordButtonText}>
-                    {secureTextEntry ? "Показати" : "Сховати"}
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.showPasswordButton}
+                    onPress={togglePassword}
+                  >
+                    <Text style={styles.showPasswordButtonText}>
+                      {secureTextEntry ? "Показати" : "Сховати"}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <Pressable style={styles.button} onPress={onLogin}>
+                  <Text style={styles.buttonText}>Увійти</Text>
+                </Pressable>
+                <View style={ styles.moveLink}>
+                  <Text style={styles.text}> Немає акаунту? </Text>
+                  <TouchableOpacity onPress={onPressNavigate}>
+                    <Text style={styles.text}>Зареєструватись</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <Pressable style={styles.button} onPress={onLogin}>
-                <Text style={styles.buttonText}>Увійти</Text>
-              </Pressable>
-              <TouchableOpacity onPress={onPressNavigate}>
-                <Text style={styles.text}>Немає акаунту? Зареєструватись</Text>
-              </TouchableOpacity>
             </View>
-          </View>
           </KeyboardAvoidingView>
         </ImageBackgroundComponent>
         <StatusBar style="auto" />
@@ -243,4 +245,11 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
   },
+  moveLink: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+  }
 });
