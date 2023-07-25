@@ -1,6 +1,6 @@
 import { TouchableOpacity } from "react-native";
 import * as React from "react";
-import { ArrowLeft } from "./icons/icons";
+import { IconLeftArrow } from "./icons/icons";
 import { useNavigation } from "@react-navigation/native";
 
 export const GoBackButton = () => {
@@ -10,7 +10,7 @@ export const GoBackButton = () => {
   };
   return (
     <TouchableOpacity onPress={handleTurnBack}>
-      <ArrowLeft style={{ marginLeft: 16 }} />
+      <IconLeftArrow style={{ marginLeft: 16 }} />
     </TouchableOpacity>
   );
 };

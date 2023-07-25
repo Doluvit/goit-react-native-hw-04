@@ -1,10 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { PostsScreen } from "../screens/PostsScreen";
+import PostsScreen from "../screens/PostsScreen";
 import CreatePostsScreen from "../screens/CreatePostsScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
-import { GridIcon, PlusIcon, UserIcon } from "../components/icons/icons";
+import { View, StyleSheet } from "react-native";
+import { IconMenu, IconAdd, IconUser } from "../components/icons/icons";
 import { LogOutButton } from "./LogOutButton";
 import { GoBackButton } from "./GoBackButton";
 
@@ -15,29 +14,23 @@ const BottomTabNavigator = () => {
     <Tabs.Navigator
       initialRouteName="Posts"
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused }) => {
           if (route.name === "Posts") {
             return (
-              <View
-                style={focused ? styles.focusedIconWrapper : styles.iconWrapper}
-              >
-                <GridIcon fill={focused ? "white" : "black"} />
+              <View style={focused ? styles.focusedIcon : styles.bluredIcon}>
+                <IconMenu stroke={focused ? "white" : "black"} />
               </View>
             );
           } else if (route.name === "CreatePosts") {
             return (
-              <View
-                style={focused ? styles.focusedIconWrapper : styles.iconWrapper}
-              >
-                <PlusIcon fill={focused ? "white" : "black"} />
+              <View style={styles.bluredIcon}>
+                <IconAdd fill={"black"} />
               </View>
             );
           } else if (route.name === "Profile") {
             return (
-              <View
-                style={focused ? styles.focusedIconWrapper : styles.iconWrapper}
-              >
-                <UserIcon fill={"white"} />
+              <View style={focused ? styles.focusedIcon : styles.bluredIcon}>
+                <IconUser stroke={focused ? "white" : "black"} />
               </View>
             );
           }
@@ -97,6 +90,20 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  bluredIcon: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  focusedIcon: {
+    backgroundColor: "#FF6C00",
+    width: 70,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

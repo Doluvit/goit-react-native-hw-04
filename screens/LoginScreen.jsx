@@ -8,15 +8,14 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  Alert,
   Keyboard,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useNavigation } from "@react-navigation/native";
 import { TouchableWithoutFeedback } from "react-native";
 import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
+import { useNavigation } from "@react-navigation/native";
 
-export default function LoginScreen() {
+const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
@@ -253,3 +252,5 @@ const styles = StyleSheet.create({
 
   }
 });
+
+export default LoginScreen;

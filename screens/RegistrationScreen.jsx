@@ -10,18 +10,14 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  Alert,
   Keyboard,
 } from "react-native";
 import { TouchableWithoutFeedback } from "react-native";
 import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
+import { useNavigation } from "@react-navigation/native";
+import { iconSvg } from "../components/icons/icons";
 
-const iconSvg = `<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12.5" cy="12.5" r="12" fill="white" stroke="#FF6C00"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M13 6H12V12H6V13H12V19H13V13H19V12H13V6Z" fill="#FF6C00"/>
-</svg>`;
-
-export default function RegistrationScreen({ navigation }) {
+const RegistrationScreen = () => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +26,7 @@ export default function RegistrationScreen({ navigation }) {
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [isOpenKeyboard, setIsOpenKeyboard] = useState(false);
+  const navigation = useNavigation();
 
   const togglePassword = () => {
     setSecureTextEntry(!secureTextEntry);
@@ -170,7 +167,7 @@ export default function RegistrationScreen({ navigation }) {
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container1: {
@@ -296,3 +293,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export default RegistrationScreen;

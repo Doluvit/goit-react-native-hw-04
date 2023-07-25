@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text } from "react-native";
 import { View } from "react-native";
-import { Comments, Location } from "../components/icons/icons";
+import { IconComment, IconLocalPosition } from "./icons/icons";
 
 const Post = ({ way, name, country, commentsNumber }) => {
   return (
@@ -25,7 +25,7 @@ const Post = ({ way, name, country, commentsNumber }) => {
       </Text>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-          <Comments />
+          <IconComment />
           <Text
             style={[
               styles.text,
@@ -38,7 +38,7 @@ const Post = ({ way, name, country, commentsNumber }) => {
           </Text>
         </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-          <Location />
+          <IconLocalPosition />
           <Text
             style={[
               styles.text,

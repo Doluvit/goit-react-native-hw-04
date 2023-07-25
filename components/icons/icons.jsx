@@ -1,24 +1,13 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
 
-export function GridIcon(props) {
-  return (
-    <Svg
-      width={24}
-      height={24}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <Path d="M3 3H10V10H3V3Z" stroke="#212121" {...props} />
-      <Path d="M14 3H21V10H14V3Z" stroke="#212121" {...props}></Path>
-      <Path d="M14 14H21V21H14V14Z" stroke="#212121" {...props}></Path>
-      <Path d="M3 14H10V21H3V14Z" stroke="#212121" {...props}></Path>
-    </Svg>
-  );
-}
+export const iconSvg = `<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12.5" cy="12.5" r="12" fill="white" stroke="#FF6C00"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M13 6H12V12H6V13H12V19H13V13H19V12H13V6Z" fill="#FF6C00"/>
+</svg>`;
 
-export function LogoutIcon(props) {
+
+export const IconLogout = (props) => {
   return (
     <Svg
       width={24}
@@ -35,8 +24,26 @@ export function LogoutIcon(props) {
       <Path d="M21 12H9" stroke="#BDBDBD" />
     </Svg>
   );
-}
-export function PlusIcon(props) {
+};
+
+export const IconMenu = (props) => {
+  return (
+    <Svg
+      width={24}
+      height={24}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Path d="M3 3H10V10H3V3Z" stroke="#212121" {...props} />
+      <Path d="M14 3H21V10H14V3Z" stroke="#212121" {...props}></Path>
+      <Path d="M14 14H21V21H14V14Z" stroke="#212121" {...props}></Path>
+      <Path d="M3 14H10V21H3V14Z" stroke="#212121" {...props}></Path>
+    </Svg>
+  );
+};
+
+export const IconAdd = (props) => {
   return (
     <Svg
       width={13}
@@ -52,8 +59,9 @@ export function PlusIcon(props) {
       />
     </Svg>
   );
-}
-export function UserIcon(props) {
+};
+
+export const IconUser = (props) => {
   return (
     <Svg
       width={24}
@@ -74,9 +82,9 @@ export function UserIcon(props) {
       ></Path>
     </Svg>
   );
-}
+};
 
-export function ArrowLeft(props) {
+export const IconLeftArrow = (props) => {
   return (
     <Svg
       width={24}
@@ -89,9 +97,9 @@ export function ArrowLeft(props) {
       <Path d="M10 18L4 12L10 6" stroke="#212121" {...props}></Path>
     </Svg>
   );
-}
+};
 
-export function Camera(props) {
+export const IconCamera = (props) => {
   return (
     <Svg
       width={24}
@@ -112,9 +120,9 @@ export function Camera(props) {
       ></Path>
     </Svg>
   );
-}
+};
 
-export function Location(props) {
+export const IconLocalPosition = (props) => {
   return (
     <Svg
       width={24}
@@ -135,9 +143,9 @@ export function Location(props) {
       ></Path>
     </Svg>
   );
-}
+};
 
-export function Trash(props) {
+export const IconTrashBucket = (props) => {
   return (
     <Svg
       width={24}
@@ -156,9 +164,9 @@ export function Trash(props) {
       <Path d="M14 11V17" stroke="#BDBDBD" {...props}></Path>
     </Svg>
   );
-}
+};
 
-export function Comments(props) {
+export const IconComment = (props) => {
   return (
     <Svg
       width={24}
@@ -174,9 +182,9 @@ export function Comments(props) {
       />
     </Svg>
   );
-}
+};
 
-export function CloseIcon(props) {
+export const IconClose = (props) => {
   return (
     <Svg
       width={11}
@@ -192,9 +200,9 @@ export function CloseIcon(props) {
       />
     </Svg>
   );
-}
+};
 
-export function LikesIcon(props) {
+export const IconLike = (props) => {
   return (
     <Svg
       width={24}
@@ -210,8 +218,8 @@ export function LikesIcon(props) {
       />
     </Svg>
   );
-}
-export function ArrowUp(props) {
+};
+export const IconArrowUp = (props) => {
   return (
     <Svg
       width={12}
@@ -227,4 +235,4 @@ export function ArrowUp(props) {
       />
     </Svg>
   );
-}
+};

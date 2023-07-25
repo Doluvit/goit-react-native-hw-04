@@ -1,10 +1,8 @@
-import { Image, StyleSheet, Text } from "react-native";
-// import TabNavigation, { FocusedIcon } from "../components/TabNavigation";
+import { Image, Text } from "react-native";
 import { View, ScrollView } from "react-native";
-// import { Comments, Location } from "../components/icons/Icons";
 import Post from "../components/Post";
 
-export const PostsScreen = () => {
+const PostsScreen = () => {
   
   return (
     <ScrollView style={{ flex: 1 }}>
@@ -64,3 +62,5 @@ export const PostsScreen = () => {
     </ScrollView>
   );
 };
+
+export default PostsScreen;

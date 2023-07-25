@@ -15,9 +15,7 @@ export const ImageBackgroundComponent = ({ children }) => {
 
 const styles = StyleSheet.create({
   image: {
-    // position: "absolute",
     flex: 1,
     justifyContent: "flex-end",
-    // alignItems: "flex-end",
   },
 });

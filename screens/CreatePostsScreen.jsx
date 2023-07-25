@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
-import { Camera, Location, Trash } from "../components/icons/icons";
+import { IconCamera, IconLocalPosition, IconTrashBucket } from "../components/icons/icons";
 import { TouchableOpacity } from "react-native";
 import { TouchableWithoutFeedback } from "react-native";
 import { Keyboard } from "react-native";
@@ -23,7 +23,7 @@ const CreatePostsScreen = () => {
               flex: 1,
               width: "100%",
               paddingBottom: isOpenKeyboard ? 55 : 34,
-              height: isOpenKeyboard? 16 : 34,
+              height: isOpenKeyboard ? 16 : 34,
               paddingTop: 32,
               paddingLeft: 16,
               paddingRight: 16,
@@ -55,7 +55,7 @@ const CreatePostsScreen = () => {
                   borderRadius: 50,
                 }}
               >
-                <Camera />
+                <IconCamera />
               </View>
             </View>
             <Text
@@ -77,7 +77,6 @@ const CreatePostsScreen = () => {
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                // justifyContent: "center",
                 gap: 4,
                 borderBottomWidth: 2,
                 borderColor: "#E8E8E8",
@@ -85,7 +84,7 @@ const CreatePostsScreen = () => {
                 marginBottom: 32,
               }}
             >
-              <Location />
+              <IconLocalPosition />
               <TextInput
                 style={{ height: 50 }}
                 placeholder="Місцевість..."
@@ -133,7 +132,7 @@ const CreatePostsScreen = () => {
                     borderRadius: 100,
                   }}
                 >
-                  <Trash />
+                  <IconTrashBucket />
                 </View>
               </TouchableOpacity>
             </View>
