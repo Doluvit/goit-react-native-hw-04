@@ -79,8 +79,8 @@ export default function LoginScreen() {
               <View
                 style={{
                   ...styles.formWrapper,
-                  paddingBottom: isOpenKeyboard ? 10 : 144,
-                  height: isOpenKeyboard ? 250 : "auto",
+                  paddingBottom: isOpenKeyboard ? 154 : 144,
+                  height: isOpenKeyboard ? 500 : 489,
                 }}
               >
                 <Text style={styles.title}>Увійти</Text>

@@ -93,8 +93,8 @@ export default function RegistrationScreen({ navigation }) {
               <View
                 style={{
                   ...styles.formWrapper,
-                  paddingBottom: isOpenKeyboard ? 10 : 111,
-                  height: isOpenKeyboard ? 370 : "auto",
+                  paddingBottom: isOpenKeyboard ? 130 : 111,
+                  height: isOpenKeyboard ? 620 : 520,
                 }}
               >
                 <View style={styles.form}>

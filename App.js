@@ -43,18 +43,18 @@ export default function App() {
             headerShown: false,
           }}
         />
-        <MainStack.Screen
+        {/* <MainStack.Screen
           name="CommentsScreen"
           component={CommentsScreen}
           options={{
             headerShown: true,
-            title: "Коментарі",
-            headerLeft: () => <LogOutButton />,
-            headerStyle: {
+            titrLeft: () => <LogOutButton />,
+            headerle: "Коментарі",
+            headeStyle: {
               borderBottomWidth: 1,
             },
           }}
-        />
+        /> */}
       </MainStack.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { PostsScreen } from "../screens/PostsScreen";
+import CreatePostsScreen from "../screens/CreatePostsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 import { View } from "react-native";
 import { StyleSheet } from "react-native";
 import { GridIcon, PlusIcon, UserIcon } from "../components/icons/icons";
 import { LogOutButton } from "./LogOutButton";
-import CreatePostsScreen from "../screens/CreatePostsScreen";
-import ProfileScreen from "../screens/ProfileScreen";
 import { GoBackButton } from "./GoBackButton";
 
 const Tabs = createBottomTabNavigator();
@@ -78,6 +78,7 @@ const BottomTabNavigator = () => {
           headerStyle: {
             borderBottomWidth: 1,
           },
+          headerTitleAlign: "center",
         }}
       />
       <Tabs.Screen

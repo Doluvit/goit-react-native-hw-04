@@ -5,6 +5,7 @@ import { View, ScrollView } from "react-native";
 import Post from "../components/Post";
 
 export const PostsScreen = () => {
+  
   return (
     <ScrollView style={{ flex: 1 }}>
       <View
