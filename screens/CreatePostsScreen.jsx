@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
-import { IconCamera, IconLocalPosition, IconTrashBucket } from "../components/icons/icons";
+import {
+  IconCamera,
+  IconLocalPosition,
+  IconTrashBucket,
+} from "../components/icons/icons";
 import { TouchableOpacity } from "react-native";
 import { TouchableWithoutFeedback } from "react-native";
 import { Keyboard } from "react-native";

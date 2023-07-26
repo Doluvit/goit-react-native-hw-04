@@ -41,7 +41,7 @@ const BottomTabNavigator = () => {
           paddingTop: 9,
           paddingLeft: 82,
           paddingRight: 82,
-          justifyContent: "center",
+          justifyContent: "center", 
           alignItems: "center",
         },
         headerShown: true,

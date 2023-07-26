@@ -83,15 +83,15 @@ const RegistrationScreen = () => {
       <View style={styles.container1}>
         <ImageBackgroundComponent>
           <KeyboardAvoidingView
-            style={{ flex: 1 }}
             behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ flex: 1 }}
           >
             <View style={{ flex: 1, justifyContent: "flex-end" }}>
               <View
                 style={{
                   ...styles.formWrapper,
-                  paddingBottom: isOpenKeyboard ? 130 : 111,
-                  height: isOpenKeyboard ? 620 : 520,
+                  paddingBottom: isOpenKeyboard ? 10 : 111,
+                  height: isOpenKeyboard ? 360 : "auto",
                 }}
               >
                 <View style={styles.form}>
@@ -100,7 +100,7 @@ const RegistrationScreen = () => {
                       <SvgXml xml={iconSvg} width={25} height={25} />
                     </TouchableOpacity>
                   </View>
-                  <Text style={styles.title}>Реєстрація</Text>
+                  <Text style={styles.title}>Реєcтрація</Text>
 
                   <TextInput
                     style={[

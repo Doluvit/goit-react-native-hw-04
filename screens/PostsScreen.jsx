@@ -3,7 +3,6 @@ import { View, ScrollView } from "react-native";
 import Post from "../components/Post";
 
 const PostsScreen = () => {
-  
   return (
     <ScrollView style={{ flex: 1 }}>
       <View
@@ -16,9 +15,16 @@ const PostsScreen = () => {
           backgroundColor: "#fff",
         }}
       >
-        <View style={{ gap: 8, flexDirection: "row", marginBottom: 32 }}>
+        <View
+          style={{
+            alignItems: "center",
+            gap: 8,
+            flexDirection: "row",
+            marginBottom: 32,
+          }}
+        >
           <Image source={require("../assets/images/user.jpg")} />
-          <View style={{ marginTop: 16 }}>
+          <View style={{ alignItems: "center", justifyContent:"flex-start" }}>
             <Text
               style={{
                 fontFamily: "Roboto-Medium",
@@ -41,22 +47,25 @@ const PostsScreen = () => {
           </View>
         </View>
         <Post
-          way={require("../assets/images/forest.jpg")}
-          name={"Ліс"}
-          commentsNumber={0}
+          source={require("../assets/images/forest.jpg")}
+          title={"Ліс"}
+          comments={8}
+          likes={153}
           country={"Ivano-Frankivs'k Region, Ukraine"}
         />
         <Post
-          way={require("../assets/images/sunset.png")}
-          name={"Захід на Чорному морі"}
-          commentsNumber={0}
+          source={require("../assets/images/sunset.png")}
+          title={"Захід на Чорному морі"}
+          comments={3}
+          likes={200}
           country={"Ukraine"}
         />
         <Post
-          way={require("../assets/images/old_house.png")}
-          name={"Захід на Чорному морі"}
-          commentsNumber={0}
-          country={"Ukraine"}
+          source={require("../assets/images/old_house.png")}
+          title={"Старий будиночок у Венеції"}
+          comments={50}
+          likes={200}
+          country={"Italy"}
         />
       </View>
     </ScrollView>
