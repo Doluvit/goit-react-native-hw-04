@@ -29,8 +29,6 @@ const ProfileScreen = () => {
                 backgroundColor: "#fff",
                 borderColor: "#BDBDBD",
                 borderWidth: 1,
-
-
               }}
             >
               <IconClose />

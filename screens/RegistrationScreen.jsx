@@ -10,12 +10,13 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import { TouchableWithoutFeedback } from "react-native";
-import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
 import { useNavigation } from "@react-navigation/native";
-import { iconSvg } from "../components/icons/icons";
+import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
+import { iconSvg } from "../assets/icons/icons";
+
 
 const RegistrationScreen = () => {
   const [login, setLogin] = useState("");

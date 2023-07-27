@@ -13,7 +13,7 @@ import {
   IconCamera,
   IconLocalPosition,
   IconTrashBucket,
-} from "../components/icons/icons";
+} from "../assets/icons/icons";
 
 const CreatePostsScreen = () => {
   const [isOpenKeyboard, setIsOpenKeyboard] = useState(false);

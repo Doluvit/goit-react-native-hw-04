@@ -3,7 +3,7 @@ import PostsScreen from "../screens/PostsScreen";
 import CreatePostsScreen from "../screens/CreatePostsScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { View, StyleSheet } from "react-native";
-import { IconMenu, IconAdd, IconUser } from "../components/icons/icons";
+import { IconMenu, IconAdd, IconUser } from "../assets/icons/icons";
 import { LogOutButton } from "./LogOutButton";
 import { GoBackButton } from "./GoBackButton";
 
@@ -18,19 +18,19 @@ const BottomTabNavigator = () => {
           if (route.name === "Posts") {
             return (
               <View style={focused ? styles.focusedIcon : styles.bluredIcon}>
-                <IconMenu stroke={focused ? "white" : "black"} />
+                <IconMenu stroke={focused ? "#fff" : "#000"} />
               </View>
             );
           } else if (route.name === "CreatePosts") {
             return (
               <View style={styles.bluredIcon}>
-                <IconAdd fill={"black"} />
+                <IconAdd fill={"#000"} />
               </View>
             );
           } else if (route.name === "Profile") {
             return (
               <View style={focused ? styles.focusedIcon : styles.bluredIcon}>
-                <IconUser stroke={focused ? "white" : "black"} />
+                <IconUser stroke={focused ? "#fff" : "#000"} />
               </View>
             );
           }
@@ -41,7 +41,7 @@ const BottomTabNavigator = () => {
           paddingTop: 9,
           paddingLeft: 82,
           paddingRight: 82,
-          justifyContent: "center", 
+          justifyContent: "center",
           alignItems: "center",
         },
         headerShown: true,
@@ -59,6 +59,7 @@ const BottomTabNavigator = () => {
           headerStyle: {
             borderBottomWidth: 1,
           },
+          headerTitleAlign: "center",
         }}
       />
       <Tabs.Screen
