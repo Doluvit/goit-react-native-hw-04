@@ -9,11 +9,11 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { TouchableWithoutFeedback } from "react-native";
-import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
 import { useNavigation } from "@react-navigation/native";
+import { ImageBackgroundComponent } from "../components/ImageBackgroundComponent";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");

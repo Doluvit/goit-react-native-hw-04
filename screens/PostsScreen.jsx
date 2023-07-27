@@ -1,49 +1,15 @@
-import { Image, Text } from "react-native";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Image, Text, StyleSheet } from "react-native";
 import Post from "../components/Post";
 
 const PostsScreen = () => {
   return (
     <ScrollView style={{ flex: 1 }}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "column",
-          paddingLeft: 16,
-          paddingRight: 16,
-          paddingTop: 32,
-          backgroundColor: "#fff",
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            gap: 8,
-            flexDirection: "row",
-            marginBottom: 32,
-          }}
-        >
+      <View style={styles.userInfoContainer}>
+        <View style={styles.userInfo}>
           <Image source={require("../assets/images/user.jpg")} />
-          <View style={{ alignItems: "center", justifyContent:"flex-start" }}>
-            <Text
-              style={{
-                fontFamily: "Roboto-Medium",
-                lineHeight: 15.23,
-                fontSize: 13,
-              }}
-            >
-              Natali Romanova
-            </Text>
-            <Text
-              style={{
-                fontFamily: "Roboto-Regular",
-                lineHeight: 12.89,
-                fontSize: 11,
-                color: "#212121CC",
-              }}
-            >
-              email@example.com
-            </Text>
+          <View style={{ alignItems: "center", justifyContent: "flex-start" }}>
+            <Text style={styles.userName}>Natali Romanova</Text>
+            <Text style={styles.userEmail}>email@example.com</Text>
           </View>
         </View>
         <Post
@@ -71,5 +37,33 @@ const PostsScreen = () => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  userInfoContainer: {
+    flex: 1,
+    flexDirection: "column",
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 32,
+    backgroundColor: "#fff",
+  },
+  userInfo: {
+    alignItems: "center",
+    gap: 8,
+    flexDirection: "row",
+    marginBottom: 32,
+  },
+  userName: {
+    fontFamily: "Roboto-Medium",
+    lineHeight: 15.23,
+    fontSize: 13,
+  },
+  userEmail: {
+    fontFamily: "Roboto-Regular",
+    lineHeight: 12.89,
+    fontSize: 11,
+    color: "#212121CC",
+  },
+});
 
 export default PostsScreen;

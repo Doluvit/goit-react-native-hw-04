@@ -55,7 +55,7 @@ const BottomTabNavigator = () => {
         component={PostsScreen}
         options={{
           title: "Публікації",
-          headerRight: () => <LogOutButton />,
+          headerRigh: () => <LogOutButton />,
           headerStyle: {
             borderBottomWidth: 1,
           },

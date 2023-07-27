@@ -1,5 +1,4 @@
-import { ImageBackground } from "react-native";
-import { StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 
 export const ImageBackgroundComponent = ({ children }) => {
   return (

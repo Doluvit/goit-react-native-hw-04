@@ -1,6 +1,9 @@
-import { Image, StyleSheet, Text } from "react-native";
-import { View } from "react-native";
-import { IconComment, IconLike, IconLocalPosition } from "./icons/icons";
+import { View, Image, StyleSheet, Text } from "react-native";
+import {
+  IconComment,
+  IconLike,
+  IconLocalPosition,
+} from "../assets/icons/icons";
 
 const Post = ({ source, title, comments, likes, country }) => {
   return (
@@ -12,19 +15,9 @@ const Post = ({ source, title, comments, likes, country }) => {
           style={{ width: "100%", height: 240, borderRadius: 8 }}
         />
       </View>
-      <Text
-        style={{
-          marginBottom: 8,
-          fontFamily: "Roboto-Medium",
-          fontSize: 16,
-          lineHeight: 18.75,
-          color: "#212121",
-        }}
-      >
-        {title}
-      </Text>
+      <Text style={styles.title}>{title}</Text>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <View style={{flexDirection: "row", gap: 24, }}>
+        <View style={{ flexDirection: "row", gap: 24 }}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
             <IconComment />
             <Text
@@ -79,5 +72,12 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     lineHeight: 18.75,
+  },
+  title: {
+    marginBottom: 8,
+    fontFamily: "Roboto-Medium",
+    fontSize: 16,
+    lineHeight: 18.75,
+    color: "#212121",
   },
 });

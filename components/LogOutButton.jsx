@@ -1,8 +1,7 @@
-import { TouchableOpacity } from "react-native";
 import * as React from "react";
-import { IconLogout } from "./icons/icons";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
+import { IconLogout } from "../assets/icons/icons";
 
 export const LogOutButton = () => {
   const navigator = useNavigation();
@@ -11,7 +10,7 @@ export const LogOutButton = () => {
   };
   return (
     <TouchableOpacity style={styles.button} onPress={handleTurnBack}>
-      <IconLogout/>
+      <IconLogout />
     </TouchableOpacity>
   );
 };
